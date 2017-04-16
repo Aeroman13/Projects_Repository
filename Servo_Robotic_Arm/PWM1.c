@@ -13,7 +13,7 @@
 
 static f32 T_PWM;
 static f32 NO_ticks_cycle;
-
+#define MILLI_SCALE 1000
 
 void PWM_init(void)
 {
@@ -44,7 +44,7 @@ void PWM_SetFreq(f32 Freq_PWM)
 void PWM_SetDutyCycle1A(f32 DutyCycle1A)
 {
 #if((PWM_PINS == OC1A) || (PWM_PINS == OC1AB))
-	f32 value =(DutyCycle1A * NO_ticks_cycle)/(T_PWM * 1000);
+	f32 value =(DutyCycle1A * NO_ticks_cycle)/(T_PWM * MILLI_SCALE);
 	OCR1A = value;
 #endif
 }
@@ -54,7 +54,7 @@ void PWM_SetDutyCycle1A(f32 DutyCycle1A)
 void PWM_SetDutyCycle1B(f32 DutyCycle1B)
 {
 #if((PWM_PINS == OC1B) || (PWM_PINS == OC1AB))
-	f32 value =(DutyCycle1B * NO_ticks_cycle)/(T_PWM * 1000);
+	f32 value =(DutyCycle1B * NO_ticks_cycle)/(T_PWM * MILLI_SCALE);
 	OCR1B = value;
 #endif
 }
