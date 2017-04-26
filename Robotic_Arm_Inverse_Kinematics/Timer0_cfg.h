@@ -27,9 +27,9 @@
 #define PRESCALER_1024	0b00000101
 
 /* Configuration */
-#define TIMER0_MODE		OVF
+#define TIMER0_MODE	OVF
 #define OC0_PIN_FUNC	DISCONNECTED
-#define PRESCALER		PRESCALER_1024
+#define PRESCALER	PRESCALER_1024
 #define TIMER0_INT_EN	TRUE
 #define CTC_COMP_VALUE	128
 /***********************************************************************/

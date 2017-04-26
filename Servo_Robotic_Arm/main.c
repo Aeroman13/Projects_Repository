@@ -9,17 +9,20 @@
 #include "Servo1.h"
 #include "util/delay.h"
 #include "Timer0.h"
+#include "DIO.h"
 
 
 
 int main(void)
 {
+	DIO_SetPinDirection(0,0,OUTPUT);
+
 	f32 j0=90,j1=90;
 	LCD_init();
 	Servo1_init();
 	Keypad_init();
-	Timer0_init();
-
+//	Timer0_init();
+//
 	Servo1A_SetAngle(j0);
 	Servo1B_SetAngle(j1);
 	LCD_MoveCu(0,0);
@@ -32,6 +35,7 @@ int main(void)
 	LCD_WriteNumber(j1);
 	while(1)
 	{
+		DIO_SetPinValue(0,0,1);
 		if(Keypad_ReadButton(0) == 0)
 		{
 			j0 += 1;
@@ -44,43 +48,43 @@ int main(void)
 			LCD_MoveCu(1,3);
 			LCD_WriteNumber(j0);
 		}
-		if(Keypad_ReadButton(4) == 0)
-		{
-			j0 -= 1;
-			_delay_ms(100);
-			if(j0 <= 60)
-			{
-				j0 = 60;
-			}
-			Servo1A_SetAngle(j0);
-			LCD_MoveCu(1,3);
-			LCD_WriteNumber(j0);
-		}
-
-		if(Keypad_ReadButton(1) == 0)
-		{
-			j1 += 1;
-			_delay_ms(100);
-			if(j1 >= 150)
-			{
-				j1 = 150;
-			}
-			Servo1B_SetAngle(j1);
-			LCD_MoveCu(1,10);
-			LCD_WriteNumber(j1);
-		}
-		if(Keypad_ReadButton(5) == 0)
-		{
-			j1 -= 1;
-			_delay_ms(100);
-			if(j1 <= 30)
-			{
-				j1 = 30;
-			}
-			Servo1B_SetAngle(j1);
-			LCD_MoveCu(1,10);
-			LCD_WriteNumber(j1);
-		}
+//		if(Keypad_ReadButton(4) == 0)
+//		{
+//			j0 -= 1;
+//			_delay_ms(100);
+//			if(j0 <= 60)
+//			{
+//				j0 = 60;
+//			}
+//			Servo1A_SetAngle(j0);
+//			LCD_MoveCu(1,3);
+//			LCD_WriteNumber(j0);
+//		}
+//
+//		if(Keypad_ReadButton(1) == 0)
+//		{
+//			j1 += 1;
+//			_delay_ms(100);
+//			if(j1 >= 150)
+//			{
+//				j1 = 150;
+//			}
+//			Servo1B_SetAngle(j1);
+//			LCD_MoveCu(1,10);
+//			LCD_WriteNumber(j1);
+//		}
+//		if(Keypad_ReadButton(5) == 0)
+//		{
+//			j1 -= 1;
+//			_delay_ms(100);
+//			if(j1 <= 30)
+//			{
+//				j1 = 30;
+//			}
+//			Servo1B_SetAngle(j1);
+//			LCD_MoveCu(1,10);
+//			LCD_WriteNumber(j1);
+//		}
 
 	}
 }
