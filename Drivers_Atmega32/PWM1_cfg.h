@@ -21,7 +21,7 @@
 
 // Select Prescaler and Pin
 #define PRESCALER	PRESCALER_64
-#define PWM_PINS	OC1AB
+#define PWM_PINS	OC1A
 
 
 /***************************************************************************/

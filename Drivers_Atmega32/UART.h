@@ -10,6 +10,6 @@
 
 void UART_init(void);
 u16 UART_ReadData(void);
-void UART_TransmitData(u8 Data);
+void UART_TransmitData(u16 Data);
 
 #endif /* UART_H_ */

@@ -11,35 +11,37 @@
 #include "Datatypes.h"
 #include "avr/interrupt.h"
 #include "UART.h"
-#include "util/delay.h"
 #include "Macros.h"
 #include "Keypad.h"
-
-
+#include "PWM1.h"
+#include "Buzzer.h"
+//#include "util/delay.h"
+f32 read;
+f32 x;
 
 int main(void)
 {
-	u16 button;
 	UART_init();
-	Keypad_init();
-
-	DIO_SetPinDirection(1,0,OUTPUT);
+	PWM_init();
+	PWM_SetFreq(447);
 	while(1)
 	{
-		button = Keypad_ReadButton(0);
-		_delay_ms(100);
-		if(button == 0)
+
+		x = (read*100)/127;
+		PWM_SetDutyCycle1A(x);
+
+		if(GET_BIT(UCSRA,7) == 0)
 		{
-			UART_TransmitData('b');
+//			PWM_SetDutyCycle1A(0);
+//			read=0;
 		}
+
 	}
 	return 0;
 }
 ISR(USART_RXC_vect)
 {
-	if(UART_ReadData() == 'a')
-	{
-		DIO_TogglePin(1,0);
-	}
+	read = UART_ReadData();
+
 }
 

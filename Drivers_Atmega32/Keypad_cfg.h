@@ -10,13 +10,13 @@
 
 #define OFF	0
 
-#define R0 8
-#define R1 9
+#define R0 30
+#define R1 OFF
 #define R2	OFF
 #define R3	OFF
 
-#define C0 10
-#define C1 11
+#define C0 31
+#define C1 OFF
 #define C2	OFF
 #define C3	OFF
 

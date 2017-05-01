@@ -20,7 +20,7 @@ void UART_init(void)
 #else
 	CLEAR_BIT(UCSRC,7);		// For HIGHER BAUD Rates
 	UBRRL =BAUD_RATE;
-	URRLH =0b00000001;
+	URRLH |=0b00000001;
 #endif
 
 #if(TRANSMIT_INT_EN == ON)|| (RECIEVE_INT_EN == ON)|| (UDR_EMPTY_INT_EN == ON)
@@ -30,7 +30,7 @@ void UART_init(void)
 
 u16 UART_ReadData(void)
 {
-	u16 read=0;
+	u16 read;
 #if(CHARACTER_SIZE == BIT_9)
 	read = (GET_BIT(UCSRB,1)<<8);		// read ninth bit
 #endif
@@ -38,7 +38,7 @@ u16 UART_ReadData(void)
 	return read;
 }
 
-void UART_TransmitData(u8 Data)
+void UART_TransmitData(u16 Data)
 {
 	while(GET_BIT(UCSRA,5) != 1);
 #if(CHARACTER_SIZE == BIT_9)

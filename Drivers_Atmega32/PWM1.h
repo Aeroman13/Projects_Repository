@@ -10,7 +10,7 @@
 
 void PWM_init(void);
 void PWM_SetFreq(f32 Freq_PWM);
-void PWM_SetDutyCycle1A(f32 DutyCycle1A);
-void PWM_SetDutyCycle1B(f32 DutyCycle1B);
+void PWM_SetDutyCycle1A(f32 Percent_DutyCycle1A);
+void PWM_SetDutyCycle1B(f32 Percent_DutyCycle1B);
 
 #endif /* PWM1_H_ */

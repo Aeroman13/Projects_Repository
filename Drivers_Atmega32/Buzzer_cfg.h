@@ -8,8 +8,8 @@
 #ifndef BUZZER_CFG_H_
 #define BUZZER_CFG_H_
 
-#define BUZZER_PORT	0
-#define BUZZER_PIN	7
+#define BUZZER_PORT	3
+#define BUZZER_PIN	5
 #define ON	1
 #define OFF	0
 

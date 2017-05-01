@@ -49,6 +49,12 @@
 #define OCR1B *((volatile u16*)0x48)
 #define ICR1A *((volatile u16*)0x46)
 
+#define UCSRA *((volatile u8*)0x2B)
+#define UCSRB *((volatile u8*)0x2A)
+#define UCSRC *((volatile u8*)0x40)
+#define UBRRL *((volatile u8*)0x29)
+
+#define UDR *((volatile u8*)0x2C)
 
 
 #endif /* REGISTERS_H_ */

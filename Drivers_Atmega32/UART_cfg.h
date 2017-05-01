@@ -26,7 +26,7 @@
 /* UART Configuration */
 
 #define MODE				ASYNCHRONOUS
-#define TRANSMIT_EN			ON
+#define TRANSMIT_EN			OFF
 #define RECIEVE_EN			ON
 #define PARITY_MODE			DISABLED
 #define STOP_BIT			ONE_BIT
