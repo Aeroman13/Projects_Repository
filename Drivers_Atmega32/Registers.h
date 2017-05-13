@@ -53,8 +53,13 @@
 #define UCSRB *((volatile u8*)0x2A)
 #define UCSRC *((volatile u8*)0x40)
 #define UBRRL *((volatile u8*)0x29)
-
 #define UDR *((volatile u8*)0x2C)
+
+#define TWBR *((volatile u8*)0x20)
+#define TWCR *((volatile u8*)0x56)
+#define TWSR *((volatile u8*)0x21)
+#define TWDR *((volatile u8*)0x23)
+#define TWAR *((volatile u8*)0x22)
 
 
 #endif /* REGISTERS_H_ */
