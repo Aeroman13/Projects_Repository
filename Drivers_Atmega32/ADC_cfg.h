@@ -38,18 +38,18 @@
 
 
 #define SINGLE_CONVERSION	0b00000000
-#define AUTO_TRIGGER	0b00100000
+#define AUTO_TRIGGER		0b00100000
 
 /* Configuration */
 
 // ADMUX
 #define REF_VOLTAGE_SOURCE	INTERNAL_AVCC
 #define LEFT_ADJUST			FALSE
-#define INITIAL_CHANNEL		ADC0
+//#define INITIAL_CHANNEL		ADC2	// Select your channel from Select channel API
 
 // ADCSRA
 #define ADC_EN 			TRUE
-#define SELECT_MODE		AUTO_TRIGGER
+#define SELECT_MODE		SINGLE_CONVERSION
 
 #define ADC_INT_EN 		FALSE
 #define ADC_PRESCALLER	PRE_64

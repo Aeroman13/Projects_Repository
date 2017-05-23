@@ -15,4 +15,5 @@ void ADC_ClearIntFlag(void);
 void ADC_DataAdjustment(u8 adj);
 u16 ADC_Read_10Bit(void);
 u8 ADC_Read_8Bit(void);
+void ADC_SelectChannel(u8 Channel);
 #endif /* ADC_H_ */

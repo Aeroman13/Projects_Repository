@@ -10,9 +10,10 @@
 #include "Macros.h"
 #include "Registers.h"
 
+
 void ADC_init(void)
 {
-	ADMUX = REF_VOLTAGE_SOURCE | (LEFT_ADJUST<<5)  |INITIAL_CHANNEL ;
+	ADMUX = REF_VOLTAGE_SOURCE | (LEFT_ADJUST<<5)  ;
 	ADCSRA = (ADC_EN << 7) | SELECT_MODE | (ADC_INT_EN << 3) | ADC_PRESCALLER;
 
 #if(SELECT_MODE == AUTO_TRIGGER)
@@ -72,9 +73,11 @@ u8 ADC_Read_8Bit(void)
 
 }
 
-void ADC_ChangeChannel(u8 Channel)
+void ADC_SelectChannel(u8 Channel)
 {
-	ADMUX |= Channel;
+	u8 arr[8] = {ADC0,ADC1,ADC2,ADC3,ADC4,ADC5,ADC6,ADC7};
+	ADMUX &=0b11110000;		// Clear previous channel
+	ADMUX |= arr[Channel];
 }
 
 
