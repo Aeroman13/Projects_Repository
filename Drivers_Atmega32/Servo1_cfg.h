@@ -17,12 +17,12 @@
 
 /* Servo 1A */   // Connected to Pin OC1A
 #define SERVO_1A				ON
-#define DUTY_CYCLE1A_0DEG		0.5	// ms
-#define DUTY_CYCLE1A_180DEG		2.25 	//ms
+#define DUTY_CYCLE1A_0DEG		0.75	// ms
+#define DUTY_CYCLE1A_180DEG		2.5 	//ms
 
 
 /* Servo 1B */  // Connected to Pin OC1B
-#define SERVO_1B				ON
+#define SERVO_1B				OFF
 #define DUTY_CYCLE1B_0DEG		0.65	// ms
 #define DUTY_CYCLE1B_180DEG		2.1 	//ms
 /***********************************************************************************/

@@ -41,22 +41,22 @@ void PWM_SetFreq(f32 Freq_PWM)
 }
 
 
-void PWM_SetDutyCycle1A(f32 Percent_DutyCycle1A)
+void PWM_SetDutyCycle1A(f32 DutyCycle1A)	 // DutyCycle in percent
 {
 #if((PWM_PINS == OC1A) || (PWM_PINS == OC1AB))
 //	f32 value =(DutyCycle1A * NO_ticks_cycle)/(T_PWM * MILLI_SCALE);
-	f32 value = (Percent_DutyCycle1A * NO_ticks_cycle)/100;
+	f32 value = (DutyCycle1A * NO_ticks_cycle)/100;
 	OCR1A = value;
 #endif
 }
 
 
 
-void PWM_SetDutyCycle1B(f32 Percent_DutyCycle1B)
+void PWM_SetDutyCycle1B(f32 DutyCycle1B)	 // DutyCycle in percent
 {
 #if((PWM_PINS == OC1B) || (PWM_PINS == OC1AB))
 //	f32 value =(DutyCycle1B * NO_ticks_cycle)/(T_PWM * MILLI_SCALE);
-	f32 value = (Percent_DutyCycle1B * NO_ticks_cycle)/100;
+	f32 value = (DutyCycle1B * NO_ticks_cycle)/100;
 	OCR1B = value;
 #endif
 }

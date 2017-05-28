@@ -67,9 +67,14 @@ u16 ADC_Read_10Bit(void)
 	return ADCLH;
 }
 
-u8 ADC_Read_8Bit(void)
+u8 ADC_Read_8Bit_HIGH(void)
 {
 	return ADCH;
+
+}
+u8 ADC_Read_8Bit_LOW(void)
+{
+	return ADCL;
 
 }
 

@@ -11,7 +11,7 @@
 #include "Macros.h"
 #include "AVR/interrupt.h"
 
-void(*Gptr)(void) ;
+void(*Gptr)(void);
 
 void Timer0_init(void)
 {
@@ -46,7 +46,7 @@ void Timer0_CTC_CompValue(u8 Value)
 u8 Timer0_GetIntFlag(void)
 {
 #if(TIMER0_MODE == OVF)
-	return TIFR;
+	return (GET_BIT(TIFR,0));
 #elif(TIMER_MODE == CTC)
 	return (GET_BIT(TIFR,1));
 #endif
@@ -62,14 +62,17 @@ void Timer0_ClearIntFlag(void)
 }
 
 
+ISR(TIMER0_OVF_vect)		//Call Back
+{
+	(*Gptr)();
+}
+
+
 void Timer0_Set_OVF_ISR( void(*ptr)(void))
 {
 	Gptr = ptr;
 
 }
 
-ISR(TIMER0_OVF_vect)
-{
-	Gptr();
-}
+
 

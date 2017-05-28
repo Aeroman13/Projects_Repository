@@ -7,6 +7,7 @@
 
 #ifndef SERVO1_H_
 #define SERVO1_H_
+#include "PWM1.h"
 void Servo1_init(void);
 void Servo1A_Test(f32 Duty_Cycle);
 void Servo1A_SetAngle(f32 Angle);
